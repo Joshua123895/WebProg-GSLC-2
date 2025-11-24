@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Income (edit)')
+@section('title', 'Income')
 @section('content')
 <h3>Edit Income</h3>
 
