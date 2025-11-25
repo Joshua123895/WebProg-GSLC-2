@@ -1,19 +1,19 @@
 @extends('layout')
-@section('title', 'Expenses')
+@section('title', __('messages.expenses'))
 @section('content')
-<h3>Edit Expense</h3>
+<h3>{{__('messages.edit_expenses')}}</h3>
 
 <form method="POST" action="{{ route('expenses.update', $expense->id) }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
     <div class="mb-3">
-        <label>Amount</label>
+        <label>{{ __('messages.amount') }}</label>
         <input type="number" step="0.01" name="amount" value="{{ $expense->amount }}" class="form-control" required>
     </div>
 
     <div class="mb-3">
-        <label>Category</label>
+        <label>{{ __('messages.category') }}</label>
         <select name="category" class="form-select" required>
             @foreach(App\Models\Expense::CATEGORY as $c)
                 <option value="{{ $c }}" @selected($expense->category == $c)>{{ $c }}</option>
@@ -22,23 +22,23 @@
     </div>
 
     <div class="mb-3">
-        <label>Description</label>
+        <label>{{ __('messages.description') }}</label>
         <textarea name="desc" class="form-control">{{ $expense->desc }}</textarea>
     </div>
 
     <div class="mb-3">
-        <label>Date</label>
+        <label>{{ __('messages.date') }}</label>
         <input type="date" name="date" value="{{ $expense->date }}" class="form-control" required>
     </div>
 
     <div class="mb-3">
-        <label>Receipt</label>
+        <label>{{ __('messages.receipt_optional') }}</label>
         <input type="file" name="receipt_file" class="form-control">
         @if($expense->receipt_file)
-        <small><a href="/storage/{{ $expense->receipt_file }}" target="_blank">View current receipt</a></small>
+        <small><a href="/storage/{{ $expense->receipt_file }}" target="_blank">{{ __('messages.view_current_receipt') }}</a></small>
         @endif
     </div>
 
-    <button class="btn btn-primary">Update</button>
+    <button class="btn btn-primary">{{ __('messages.update') }}</button>
 </form>
 @endsection

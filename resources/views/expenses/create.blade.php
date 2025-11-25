@@ -1,18 +1,18 @@
 @extends('layout')
-@section('title', 'Expenses')
+@section('title', __('messages.expenses'))
 @section('content')
-<h3>Add Expense</h3>
+<h3>{{__('messages.expenses_list')}}</h3>
 
 <form method="POST" action="{{ route('expenses.store') }}" enctype="multipart/form-data">
     @csrf
 
     <div class="mb-3">
-        <label>Amount</label>
+        <label>{{ __('messages.amount') }}</label>
         <input type="number" step="0.01" name="amount" class="form-control" required>
     </div>
 
     <div class="mb-3">
-        <label>Category</label>
+        <label>{{ __('messages.category') }}</label>
         <select name="category" class="form-select" required>
             @foreach(App\Models\Expense::CATEGORY as $c)
                 <option value="{{ $c }}">{{ $c }}</option>
@@ -21,20 +21,20 @@
     </div>
 
     <div class="mb-3">
-        <label>Description</label>
+        <label>{{ __('messages.description') }}</label>
         <textarea name="desc" class="form-control"></textarea>
     </div>
 
     <div class="mb-3">
-        <label>Date</label>
+        <label>{{ __('messages.date') }}</label>
         <input type="date" name="date" class="form-control" required>
     </div>
 
     <div class="mb-3">
-        <label>Receipt (optional)</label>
+        <label>{{ __('messages.receipt_optional') }}</label>
         <input type="file" name="receipt_file" class="form-control">
     </div>
 
-    <button class="btn btn-danger">Save</button>
+    <button class="btn btn-danger">{{ __('messages.save') }}</button>
 </form>
 @endsection

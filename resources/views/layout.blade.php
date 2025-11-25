@@ -111,46 +111,63 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
+    <nav class="navbar navbar-expand-lg navbar-dark" 
+         style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
         <div class="container">
+
             <a class="navbar-brand" href="/dashboard">
                 <i class="fas fa-wallet me-2"></i>DompetKu
             </a>
 
-            @auth
             <div class="ms-auto d-flex align-items-center">
-                <span class="text-light me-3">Welcome, {{ auth()->user()->name }}</span>
+
+                @auth
+                <span class="text-light me-3">
+                    {{ auth()->user()->name }}
+                </span>
+
                 <a href="{{ route('income.index') }}" class="btn btn-light btn-sm me-2">
-                    <i class="fas fa-money-bill-wave me-1"></i>Income
+                    <i class="fas fa-money-bill-wave me-1"></i>{{ __('messages.income') }}
                 </a>
+
                 <a href="{{ route('expenses.index') }}" class="btn btn-light btn-sm me-2">
-                    <i class="fas fa-receipt me-1"></i>Expenses
+                    <i class="fas fa-receipt me-1"></i>{{ __('messages.expenses') }}
                 </a>
+
                 <form action="/logout" method="POST" class="d-inline">
                     @csrf
-                    <button class="btn btn-outline-light btn-sm">
-                        <i class="fas fa-sign-out-alt me-1"></i>Logout
+                    <button class="btn btn-outline-light btn-sm me-2">
+                        <i class="fas fa-sign-out-alt me-1"></i>{{ __('messages.logout') }}
                     </button>
                 </form>
-            </div>
-            @endauth
+                @endauth
 
-            @guest
-            <div class="ms-auto">
-                <a href="/login" class="btn btn-light btn-sm">
-                    <i class="fas fa-sign-in-alt me-1"></i>Login
+                @guest
+                <a href="/login" class="btn btn-light btn-sm me-2">
+                    <i class="fas fa-sign-in-alt me-1"></i>{{ __('messages.login') }}
                 </a>
+
+                <a href="/register" class="btn btn-light btn-sm me-2">
+                    <i class="fas fa-sign-in-alt me-1"></i>{{ __('messages.register') }}
+                </a>
+                @endguest
+
+                <div class="dropdown">
+                    <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-globe-asia me-1"></i>{{ __('messages.language') }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="/lang/en">English</a></li>
+                        <li><a class="dropdown-item" href="/lang/id">Bahasa Indonesia</a></li>
+                    </ul>
+                </div>
             </div>
-            @endguest
         </div>
     </nav>
 
-    {{-- Simple fix: Only use white container for non-auth pages --}}
     @if(Request::is('login') || Request::is('register'))
-        {{-- For login/register, just show the content directly on gradient background --}}
         @yield('content')
     @else
-        {{-- For all other pages, use the white container --}}
         <div class="container">
             <div class="main-container">
                 <div class="p-4">
