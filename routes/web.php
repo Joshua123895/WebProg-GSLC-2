@@ -12,6 +12,12 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
+Route::get('/lang/{lang}', function($lang) {
+    session(['locale' => $lang]);
+    app()->setLocale($lang);
+    return back();
+});
+
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 

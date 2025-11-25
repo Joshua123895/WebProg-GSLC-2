@@ -1,13 +1,13 @@
 @extends('layout')
 @section('title', 'Register')
 @section('content')
-<h3>Register</h3>
+<h3>{{__('messages.register')}}</h3>
 
 <form method="POST" action="/register">
     @csrf
     
     <div class="mb-3">
-        <label>Name</label>
+        <label>{{__('messages.name')}}</label>
         <input type="text" name="name" class="form-control" required>
     </div>
 
@@ -17,7 +17,7 @@
     </div>
 
     <div class="mb-3">
-        <label>Password</label>
+        <label>{{ __('messages.password') }}</label>
         <div class="input-group">
             <input type="password" name="password" id="password" class="form-control" minlength="6" required>
             <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password', 'eye1')">
@@ -25,12 +25,12 @@
             </button>
         </div>
         <div class="form-text">
-            Password must have at least 6 characters.
+            {{__('messages.password_hint')}}
         </div>
     </div>
 
     <div class="mb-3">
-        <label>Confirm Password</label>
+        <label>{{__('messages.confirm')}}</label>
         <div class="input-group">
             <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" minlength="6" required>
             <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password_confirmation', 'eye2')">
@@ -39,11 +39,11 @@
         </div>
     </div>
 
-    <button class="btn btn-success w-100">Register</button>
+    <button class="btn btn-success w-100">{{__('messages.register')}}</button>
 </form>
 
 <p class="mt-3 text-center">
-    Already have an account? <a href="/login">Login</a>
+    {{__('messages.not_register')}} <a href="/login">{{__('messages.login')}}</a>
 </p>
 @endsection
 @section('script')

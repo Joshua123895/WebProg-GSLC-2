@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title', 'Login')
 @section('content')
-<h3>Login</h3>
+<h3>{{__('messages.login')}}</h3>
 
 <form method="POST" action="/login">
     @csrf
@@ -12,7 +12,7 @@
     </div>
 
     <div class="mb-3">
-        <label>Password</label>
+        <label>{{ __('messages.password') }}</label>
         <div class="input-group">
             <input type="password" name="password" id="password" class="form-control" minlength="6" required>
             <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()">
@@ -20,15 +20,15 @@
             </button>
         </div>
         <div class="form-text">
-            Password must have at least 6 characters.
+            {{__('messages.password_hint')}}
         </div>
     </div>
 
-    <button class="btn btn-primary w-100">Login</button>
+    <button class="btn btn-primary w-100">{{__('messages.login')}}</button>
 </form>
 
 <p class="mt-3 text-center">
-    Don’t have an account? <a href="/register">Register</a>
+    {{__('messages.not_login')}} <a href="/register">{{__('messages.register')}}</a>
 </p>
 @endsection
 @section('script')
