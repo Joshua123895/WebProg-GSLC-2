@@ -14,7 +14,7 @@
     <div class="mb-3">
         <label>Password</label>
         <div class="input-group">
-            <input type="password" name="password" id="password" class="form-control" required>
+            <input type="password" name="password" id="password" class="form-control" minlength="6" required>
             <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()">
                 <i id="eyeIcon" class="bi bi-eye"></i>
             </button>

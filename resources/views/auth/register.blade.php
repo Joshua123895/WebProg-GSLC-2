@@ -19,7 +19,7 @@
     <div class="mb-3">
         <label>Password</label>
         <div class="input-group">
-            <input type="password" name="password" id="password" class="form-control" required>
+            <input type="password" name="password" id="password" class="form-control" minlength="6" required>
             <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password', 'eye1')">
                 <i id="eye1" class="bi bi-eye"></i>
             </button>
@@ -32,7 +32,7 @@
     <div class="mb-3">
         <label>Confirm Password</label>
         <div class="input-group">
-            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" minlength="6" required>
             <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password_confirmation', 'eye2')">
                 <i id="eye2" class="bi bi-eye"></i>
             </button>
