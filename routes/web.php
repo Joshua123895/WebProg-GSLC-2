@@ -9,7 +9,7 @@ Route::get('/', function () {
     if (!auth()->check()) {
         return redirect('/login');
     }
-    return view('dashboard');
+    return redirect('/dashboard');
 });
 
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login');

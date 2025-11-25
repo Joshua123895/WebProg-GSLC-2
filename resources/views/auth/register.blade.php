@@ -18,12 +18,25 @@
 
     <div class="mb-3">
         <label>Password</label>
-        <input type="password" name="password" class="form-control" required>
+        <div class="input-group">
+            <input type="password" name="password" id="password" class="form-control" required>
+            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password', 'eye1')">
+                <i id="eye1" class="bi bi-eye"></i>
+            </button>
+        </div>
+        <div class="form-text">
+            Password must have at least 6 characters.
+        </div>
     </div>
 
     <div class="mb-3">
         <label>Confirm Password</label>
-        <input type="password" name="password_confirmation" class="form-control" required>
+        <div class="input-group">
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password_confirmation', 'eye2')">
+                <i id="eye2" class="bi bi-eye"></i>
+            </button>
+        </div>
     </div>
 
     <button class="btn btn-success w-100">Register</button>
@@ -32,4 +45,22 @@
 <p class="mt-3 text-center">
     Already have an account? <a href="/login">Login</a>
 </p>
+@endsection
+@section('script')
+<script>
+    function togglePassword(fieldId, iconId) {
+        const field = document.getElementById(fieldId);
+        const icon = document.getElementById(iconId);
+
+        if (field.type === "password") {
+            field.type = "text";
+            icon.classList.remove("bi-eye");
+            icon.classList.add("bi-eye-slash");
+        } else {
+            field.type = "password";
+            icon.classList.remove("bi-eye-slash");
+            icon.classList.add("bi-eye");
+        }
+    }
+</script>
 @endsection
