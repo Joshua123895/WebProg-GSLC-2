@@ -10,7 +10,7 @@
 
     <div class="mb-3">
         <label>{{ __('messages.amount') }}</label>
-        <input type="number" step="0.01" name="amount" value="{{ $income->amount }}" class="form-control" required>
+        <input type="number" min="0" step="0.01" name="amount" value="{{ $income->amount }}" class="form-control" required>
     </div>
 
     <div class="mb-3">
@@ -24,7 +24,7 @@
 
     <div class="mb-3">
         <label>{{ __('messages.description') }}</label>
-        <textarea name="desc" class="form-control">{{ $income->desc }}</textarea>
+        <textarea name="description" class="form-control">{{ $income->desc }}</textarea>
     </div>
 
     <div class="mb-3">

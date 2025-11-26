@@ -40,9 +40,7 @@ class AuthController extends Controller {
             $request->session()->regenerate();
             return redirect('/dashboard');
         }
-        return back()->withErrors([
-            'email' => 'Email atau password salah.',
-        ]);
+        return back()->with('error', 'Invalid email or password.');
     }
 
     public function logout() {

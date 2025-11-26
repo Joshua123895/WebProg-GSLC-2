@@ -8,7 +8,7 @@
 
     <div class="mb-3">
         <label>{{ __('messages.amount') }}</label>
-        <input type="number" step="0.01" name="amount" class="form-control" required>
+        <input type="number" min="0" step="0.01" name="amount" class="form-control" required>
     </div>
 
     <div class="mb-3">
@@ -22,7 +22,7 @@
 
     <div class="mb-3">
         <label>{{ __('messages.description') }}</label>
-        <textarea name="desc" class="form-control"></textarea>
+        <textarea name="description" class="form-control"></textarea>
     </div>
 
     <div class="mb-3">
@@ -35,6 +35,6 @@
         <input type="file" name="receipt_file" class="form-control">
     </div>
 
-    <button class="btn btn-danger">{{ __('messages.save') }}</button>
+    <button class="btn btn-success">{{ __('messages.save') }}</button>
 </form>
 @endsection

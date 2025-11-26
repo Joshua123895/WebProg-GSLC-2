@@ -21,7 +21,7 @@ class IncomeController extends Controller
         $request->validate([
             'amount' => 'required|numeric',
             'source' => 'required',
-            'desc' => 'nullable',
+            'description' => 'nullable',
             'date' => 'required|date',
             'receipt_file' => 'nullable|file'
         ]);
@@ -36,7 +36,7 @@ class IncomeController extends Controller
             'user_id' => Auth::id(),
             'amount' => $request->amount,
             'source' => $request->source,
-            'desc' => $request->desc,
+            'description' => $request->description,
             'date' => $request->date,
             'receipt_file' => $fileName
         ]);
@@ -55,7 +55,7 @@ class IncomeController extends Controller
         $request->validate([
             'amount' => 'required|numeric',
             'source' => 'required',
-            'desc' => 'nullable',
+            'description' => 'nullable',
             'date' => 'required|date',
             'receipt_file' => 'nullable|file'
         ]);
@@ -67,7 +67,7 @@ class IncomeController extends Controller
         $income->update([
             'amount' => $request->amount,
             'source' => $request->source,
-            'desc' => $request->desc,
+            'description' => $request->description,
             'date' => $request->date
         ]);
 

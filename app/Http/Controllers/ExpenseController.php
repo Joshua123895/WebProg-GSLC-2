@@ -23,7 +23,7 @@ class ExpenseController extends Controller {
         $request->validate([
             'amount' => 'required|numeric',
             'category' => 'required',
-            'desc' => 'nullable',
+            'description' => 'nullable',
             'date' => 'required|date',
             'receipt_file' => 'nullable|file'
         ]);
@@ -38,7 +38,7 @@ class ExpenseController extends Controller {
             'user_id' => Auth::id(),
             'amount' => $request->amount,
             'category' => $request->category,
-            'desc' => $request->desc,
+            'description' => $request->description,
             'date' => $request->date,
             'receipt_file' => $fileName
         ]);
@@ -57,7 +57,7 @@ class ExpenseController extends Controller {
         $request->validate([
             'amount' => 'required|numeric',
             'category' => 'required',
-            'desc' => 'nullable',
+            'description' => 'nullable',
             'date' => 'required|date',
             'receipt_file' => 'nullable|file'
         ]);
@@ -69,7 +69,7 @@ class ExpenseController extends Controller {
         $expense->update([
             'amount' => $request->amount,
             'category' => $request->category,
-            'desc' => $request->desc,
+            'description' => $request->description,
             'date' => $request->date
         ]);
 

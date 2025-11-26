@@ -26,7 +26,7 @@
     <tr>
         <td>{{ $inc->amount }}</td>
         <td>{{ $inc->source }}</td>
-        <td>{{ $inc->desc }}</td>
+        <td>{{ $inc->description }}</td>
         <td>{{ $inc->date }}</td>
         <td>
             @if($inc->receipt_file)

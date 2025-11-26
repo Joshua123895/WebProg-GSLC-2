@@ -27,7 +27,7 @@
     <tr>
         <td>{{ $exp->amount }}</td>
         <td>{{ $exp->category }}</td>
-        <td>{{ $exp->desc }}</td>
+        <td>{{ $exp->description }}</td>
         <td>{{ $exp->date }}</td>
         <td>
             @if($exp->receipt_file)
